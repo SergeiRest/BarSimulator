@@ -1,10 +1,14 @@
 ﻿using DG.Tweening;
+using Ingredients;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.Reservoirs.State
 {
     public class FillState : ReservoirState
     {
+        [Inject] private IngredientSelector _selector;
+        
         private int fillAmount = 0;
         private int maxFill = 2;
         private SpriteRenderer[] _renderers;
@@ -39,6 +43,9 @@ namespace Scripts.Reservoirs.State
             _sequence = DOTween.Sequence();
             Debug.Log("StartFilling");
             SpriteRenderer current = _renderers[fillAmount];
+            Color color = _selector.SelectedIngredient.Color;
+            color.a = 0;
+            current.color = color;
 
             _sequence.Append(current.DOFade(1, _fillDuration)).OnComplete(() =>
             {

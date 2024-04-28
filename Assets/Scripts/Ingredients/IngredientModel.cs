@@ -6,8 +6,10 @@ namespace Ingredients
 {
     public class IngredientModel : MonoBehaviour, IInputObserver
     {
-        [SerializeField] private string _ingredientName;
+        [Inject] private IngredientSelector _selector;
 
+        [SerializeField] private string _ingredientName;
+        
         private Ingredient _ingredient;
 
         public Transform Transform => transform;
@@ -21,7 +23,8 @@ namespace Ingredients
         
         public void Interact()
         {
-            Debug.Log("Aboba");
+            _selector.Select(_ingredient);
+            Debug.Log($"Selected {_ingredient.Name}");
         }
     }
 

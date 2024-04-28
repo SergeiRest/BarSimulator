@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Ingredients;
+using UnityEngine;
+using Zenject;
 
 namespace Scripts.Reservoirs.State
 {
     public class SelectionState : ReservoirState
     {
+        [Inject] private IngredientSelector _ingredientSelector;
+        
         public SelectionState(StateSwitcher stateSwitcher) : base(stateSwitcher)
         {
         }
@@ -20,6 +24,12 @@ namespace Scripts.Reservoirs.State
 
         public override void Interact()
         {
+            bool isEmpty = _ingredientSelector.IsEmpty;
+            if (isEmpty)
+            {
+                Debug.Log("No one selected ingredient");
+                return;
+            }
             StateSwitcher.SetState<FillState>();
         }
     }

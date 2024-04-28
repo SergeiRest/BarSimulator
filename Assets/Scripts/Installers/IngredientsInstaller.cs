@@ -13,6 +13,7 @@ namespace Installers
         {
             Container.BindInterfacesAndSelfTo<IngredientsData>().FromInstance(_ingredientsData).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<IngredientsContainer>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<IngredientSelector>().FromNew().AsSingle().NonLazy();
         }
     }
 }

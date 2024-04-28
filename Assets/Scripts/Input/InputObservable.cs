@@ -20,14 +20,15 @@ namespace Input
                 throw new NullReferenceException("None of observables");
             }
 
-            IInputObserver observer = _observables[0];
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
+            worldPosition.z = 0;
             
-            Debug.Log(_observables.Count);
+            IInputObserver observer = _observables[0];
             
             for (int i = 1; i < _observables.Count; i++)
             {
-                if ((_observables[i].Transform.position - position).sqrMagnitude <
-                    (observer.Transform.position - position).sqrMagnitude)
+                if ((_observables[i].Transform.position - worldPosition).sqrMagnitude <
+                    (observer.Transform.position - worldPosition).sqrMagnitude)
                 {
                     observer = _observables[i];
                 }
