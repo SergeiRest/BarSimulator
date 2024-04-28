@@ -21,7 +21,9 @@ namespace Input
             }
 
             IInputObserver observer = _observables[0];
-
+            
+            Debug.Log(_observables.Count);
+            
             for (int i = 1; i < _observables.Count; i++)
             {
                 if ((_observables[i].Transform.position - position).sqrMagnitude <
