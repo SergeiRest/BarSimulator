@@ -15,3 +15,5 @@ MonoBehaviour:
   <Ingredients>k__BackingField:
   - Name: Govno
     FillColor: {r: 0.32156864, g: 0.25882354, b: 0.19215687, a: 1}
+  - Name: Jeen
+    FillColor: {r: 0.043396115, g: 1, b: 0.97003084, a: 1}

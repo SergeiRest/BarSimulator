@@ -13,7 +13,7 @@ namespace Scripts.Reservoirs.State
         private int maxFill = 2;
         private SpriteRenderer[] _renderers;
         private Sequence _sequence;
-        private float _fillDuration = 5f;
+        private float _fillDuration = 2f;
         
         public FillState(StateSwitcher stateSwitcher, SpriteRenderer[] renderers) : base(stateSwitcher)
         {

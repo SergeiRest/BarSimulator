@@ -18,6 +18,7 @@ namespace Scripts.Reservoirs.State
         public override void Enter()
         {
             _dragHandler.DragUpdate += _mover.Move;
+            _mover.OnComplete += Complete;
             Debug.Log("Etner drag state");
         }
 
@@ -28,6 +29,13 @@ namespace Scripts.Reservoirs.State
 
         public override void Interact()
         {
+        }
+
+        private void Complete()
+        {
+            _dragHandler.DragUpdate -= _mover.Move;
+            _mover.SetToDefault();
+            Debug.Log("A");
         }
     }
 }
