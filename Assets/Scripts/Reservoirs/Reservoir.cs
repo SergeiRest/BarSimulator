@@ -10,7 +10,6 @@ namespace Scripts.Reservoirs
     public abstract class Reservoir : MonoBehaviour, IReservoir, IInputObserver
     {
         [SerializeField] private ReservoirType _reservoirType;
-        [SerializeField] private int _stageCount;
         [SerializeField] private SpriteRenderer[] _stageRenderers;
 
         [Inject] private IInputObservable _inputObservable;
@@ -22,7 +21,7 @@ namespace Scripts.Reservoirs
         protected IMover mover;
 
         public ReservoirType ReservoirType => _reservoirType;
-        public int StagesCount => _stageCount;
+        public int StagesCount => _stageRenderers.Length;
         public SpriteRenderer[] StageRenderers => _stageRenderers;
         public Transform Transform => transform;
 
@@ -43,7 +42,7 @@ namespace Scripts.Reservoirs
             _diContainer.Inject(_stateSwitcher);
             
             _stateSwitcher.Add(new SelectionState(_stateSwitcher));
-            _stateSwitcher.Add(new FillState(_stateSwitcher));
+            _stateSwitcher.Add(new FillState(_stateSwitcher, _stageRenderers));
             _stateSwitcher.Add(new DragState(_stateSwitcher, mover));
             _stateSwitcher.SetState<SelectionState>();
         }
