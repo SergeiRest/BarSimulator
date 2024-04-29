@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Data;
 using Zenject;
 
@@ -16,6 +17,14 @@ namespace Scripts.Reservoirs
             {
                 _reservoirs.Add((reservoir.ReservoirType, reservoir.StagesCount), reservoir);
             }
+        }
+
+        public Reservoir Get((ReservoirType, int) touple)
+        {
+            if(_reservoirs.TryGetValue(touple, out var reservoir))
+                return reservoir;
+
+            throw new NullReferenceException("None of reservoir for this condition");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Installers
         {
             Container.BindInterfacesAndSelfTo<ReservoirData>().FromInstance(_reservoirData).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ReservoirContainer>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ReservoirCreater>().FromNew().AsSingle().NonLazy();
         }
     }
 }

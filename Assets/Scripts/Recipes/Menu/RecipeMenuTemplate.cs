@@ -38,6 +38,7 @@ namespace Recipes.Menu
                     RecipeTemplate obj = _diContainer.InstantiatePrefabForComponent<RecipeTemplate>(_recipeTemplate);
                     obj.transform.SetParent(_parent);
                     obj.transform.localScale = Vector3.one;
+                    obj.Init(recipeData.Recipes[i]);
 
                     recipeTemplates[i] = obj;
                 }

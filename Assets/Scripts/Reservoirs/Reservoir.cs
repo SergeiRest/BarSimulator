@@ -46,5 +46,10 @@ namespace Scripts.Reservoirs
             _stateSwitcher.Add(new DragState(_stateSwitcher, mover));
             _stateSwitcher.SetState<SelectionState>();
         }
+
+        private void OnDestroy()
+        {
+            _inputObservable.RemoveObserver(this);
+        }
     }
 }

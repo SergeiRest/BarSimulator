@@ -13,6 +13,12 @@ namespace Input
             _observables.Add(observer);
         }
 
+        public void RemoveObserver(IInputObserver observer)
+        {
+            if (_observables.Contains(observer))
+                _observables.Remove(observer);
+        }
+
         public IInputObserver SelectObservable(Vector3 position)
         {
             if (_observables.Count == 0)
