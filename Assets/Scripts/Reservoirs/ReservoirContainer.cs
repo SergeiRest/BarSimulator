@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using Data;
-using UnityEngine;
 using Zenject;
 
 namespace Scripts.Reservoirs
 {
     public class ReservoirContainer
     {
-        private Dictionary<(ReservoirType, int), IReservoir> _reservoirs =
-            new Dictionary<(ReservoirType, int), IReservoir>();
+        private Dictionary<(ReservoirType, int), Reservoir> _reservoirs =
+            new Dictionary<(ReservoirType, int), Reservoir>();
 
         [Inject]
         private void Construct(ReservoirData data)

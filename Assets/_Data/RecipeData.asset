@@ -15,5 +15,7 @@ MonoBehaviour:
   Recipes:
   - Name: Kognyak
     Ingridients:
-    - Govno
-    - Govno
+    - Spirt
+    - Oreshki
+    ReservoirType: 1
+    StagesCount: 2

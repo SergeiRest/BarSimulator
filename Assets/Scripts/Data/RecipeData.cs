@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Recipes.Menu;
+using Scripts.Reservoirs;
+using UnityEngine;
 
 namespace Data
 {
@@ -13,5 +15,7 @@ namespace Data
     {
         public string Name;
         public string[] Ingridients;
+        public ReservoirType ReservoirType;
+        public int StagesCount;
     }
 }
