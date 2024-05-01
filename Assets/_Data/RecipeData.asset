@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: RecipeData
   m_EditorClassIdentifier: 
   Recipes:
-  - Name: Kognyak
+  - Size: 2
+    Name: Kognyak
     Ingridients:
     - Spirt
     - Oreshki
     ReservoirType: 1
-    StagesCount: 2
-  - Name: BeachOnSex
+  - Size: 2
+    Name: BeachOnSex
     Ingridients:
     - Spirt
     - Spirt
     ReservoirType: 0
-    StagesCount: 2
-  - Name: Onli vodka
+  - Size: 1
+    Name: Aboba
     Ingridients:
     - Spirt
+    - Spirt
+    - Spirt
+    - Spirt
     ReservoirType: 0
-    StagesCount: 1

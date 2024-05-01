@@ -7,9 +7,9 @@ namespace Guests
 {
     public abstract class AbstractGuestTemplate : MonoBehaviour
     { 
-        protected Recipe _selected;
+        protected Recipe _selectedCocktail;
 
-        public Recipe Selected => _selected;
+        public Recipe SelectedCocktail => _selectedCocktail;
 
         protected abstract void Init();
 

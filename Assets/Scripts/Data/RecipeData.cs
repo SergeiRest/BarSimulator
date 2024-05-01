@@ -13,6 +13,7 @@ namespace Data
     [System.Serializable]
     public struct Recipe
     {
+        public Scripts.Reservoirs.Interactables.Size Size;
         public string Name;
         public string[] Ingridients;
         public ReservoirType ReservoirType;

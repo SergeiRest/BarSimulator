@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Scripts.Reservoirs
 {
-    public class ReservoirCreater
+    public class ReservoirCreator
     {
         [Inject] private DiContainer _diContainer;
         [Inject] private ReservoirContainer _reservoirContainer;
