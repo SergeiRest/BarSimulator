@@ -1,4 +1,5 @@
 ﻿using Data;
+using Recipes;
 using Recipes.Menu;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,7 @@ namespace Installers
         {
             Container.BindInterfacesAndSelfTo<RecipeData>().FromInstance(_recipeData).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<RecipeTemplate>().FromInstance(_recipeTemplate).AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<RecipeGenerator>().FromNew().AsSingle().NonLazy();
         }
     }
 }

@@ -19,3 +19,14 @@ MonoBehaviour:
     - Oreshki
     ReservoirType: 1
     StagesCount: 2
+  - Name: BeachOnSex
+    Ingridients:
+    - Spirt
+    - Spirt
+    ReservoirType: 0
+    StagesCount: 2
+  - Name: Onli vodka
+    Ingridients:
+    - Spirt
+    ReservoirType: 0
+    StagesCount: 1

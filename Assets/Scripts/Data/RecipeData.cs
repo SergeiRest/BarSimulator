@@ -16,6 +16,6 @@ namespace Data
         public string Name;
         public string[] Ingridients;
         public ReservoirType ReservoirType;
-        public int StagesCount;
+        public int StagesCount => Ingridients.Length;
     }
 }
