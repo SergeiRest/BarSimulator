@@ -8,12 +8,13 @@ namespace Scripts.Reservoirs
         [Inject] private DiContainer _diContainer;
         [Inject] private ReservoirContainer _reservoirContainer;
 
-        public void Create((ReservoirType, int) touple)
+        public Reservoir Create((ReservoirType, int) touple)
         {
             Reservoir prefab = _reservoirContainer.Get(touple);
 
             Reservoir obj = _diContainer.InstantiatePrefabForComponent<Reservoir>(prefab);
             obj.Transform.localPosition = Vector3.zero;
+            return obj;
         }
     }
 }

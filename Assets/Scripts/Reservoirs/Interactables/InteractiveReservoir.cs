@@ -17,6 +17,7 @@ namespace Scripts.Reservoirs.Interactables
     public class InteractiveReservoir : MonoBehaviour, IInputObserver
     {
         [Inject] private ReservoirCreator _reservoirCreator;
+        [Inject] private ReservoirPlacer _placer;
         [Inject] private GuestHandler _guestHandler;
 
         [SerializeField] private ReservoirType _reservoirType;
@@ -33,6 +34,7 @@ namespace Scripts.Reservoirs.Interactables
         public void Interact()
         {
             var cocktailSize = _guestHandler.Guest.SelectedCocktail.Size;
+            int cocktailStages = _guestHandler.Guest.SelectedCocktail.StagesCount;
             if(cocktailSize != Size.Universal && _size != cocktailSize)
                 return;
             
@@ -42,8 +44,7 @@ namespace Scripts.Reservoirs.Interactables
             else
                 multiplier = 1;
             
-            Debug.Log(multiplier);
-            _reservoirCreator.Create((_reservoirType, _guestHandler.Guest.SelectedCocktail.StagesCount * multiplier));
+            _placer.Select(_reservoirType, cocktailStages * multiplier);
         }
     }
 }
