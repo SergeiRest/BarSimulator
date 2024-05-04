@@ -1,6 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using Data;
+﻿using Data;
+using Scripts.Reservoirs.State;
 using UnityEngine;
 
 namespace Guests
@@ -16,6 +15,23 @@ namespace Guests
         private void Awake()
         {
             Init();
+        }
+
+        public void CheckCocktail(Filler filler)
+        {
+            if (filler.Container.Count < _selectedCocktail.StagesCount)
+            {
+                Debug.Log("Xyeta");
+                return;
+            }
+
+            bool value = true;
+            for (int i = 0; i < filler.Container.Count; i++)
+            {
+                value &= filler.Container[i].Name == _selectedCocktail.Ingridients[i];
+            }
+            
+            Debug.Log(value);
         }
     }
 }

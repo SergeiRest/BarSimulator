@@ -12,6 +12,9 @@ namespace Scripts.Reservoirs
 
         public void Select(ReservoirType type, int size)
         {
+            if(_placed != null && !_placed.isEmpty)
+                return;
+            
             if (_placed != null)
             {
                 Object.Destroy(_placed.gameObject);

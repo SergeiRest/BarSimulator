@@ -17,6 +17,7 @@ namespace Scripts.Reservoirs
 
         private int _currentStage = 0;
         private StateSwitcher _stateSwitcher;
+        private Filler _filler;
 
         protected IMover mover;
 
@@ -27,6 +28,7 @@ namespace Scripts.Reservoirs
 
         protected virtual void Construct()
         {
+            _filler = new Filler();
             _inputObservable.AddObserver(this);
             InitStateMachine();
         }
@@ -42,8 +44,9 @@ namespace Scripts.Reservoirs
             _diContainer.Inject(_stateSwitcher);
             
             _stateSwitcher.Add(new SelectionState(_stateSwitcher));
-            _stateSwitcher.Add(new FillState(_stateSwitcher, _stageRenderers));
+            _stateSwitcher.Add(new FillState(_stateSwitcher, _stageRenderers, _filler));
             _stateSwitcher.Add(new DragState(_stateSwitcher, mover));
+            _stateSwitcher.Add(new FinishState(_stateSwitcher, _filler));
             _stateSwitcher.SetState<SelectionState>();
         }
 
@@ -51,5 +54,8 @@ namespace Scripts.Reservoirs
         {
             _inputObservable.RemoveObserver(this);
         }
+
+        public bool isEmpty 
+            => _filler.Container.Count == 0;
     }
 }

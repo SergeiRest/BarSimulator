@@ -23,13 +23,5 @@ MonoBehaviour:
     Name: BeachOnSex
     Ingridients:
     - Spirt
-    - Spirt
-    ReservoirType: 0
-  - Size: 1
-    Name: Aboba
-    Ingridients:
-    - Spirt
-    - Spirt
-    - Spirt
-    - Spirt
-    ReservoirType: 0
+    - Oreshki
+    ReservoirType: 1

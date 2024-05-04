@@ -36,6 +36,7 @@ namespace Scripts.Reservoirs.State
             _dragHandler.DragUpdate -= _mover.Move;
             _mover.SetToDefault();
             Debug.Log("A");
+            StateSwitcher.SetState<FinishState>();
         }
     }
 }
