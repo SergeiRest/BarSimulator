@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using System;
+using Input;
 using UnityEngine;
 using Zenject;
 
@@ -28,15 +29,12 @@ namespace Ingredients
         }
     }
 
+    [System.Serializable]
     public class Ingredient
     {
-        public string Name { get; private set; }
-        public Color Color { get; private set; }
+        public string Name;
+        public Color Color;
 
-        public Ingredient(string name, Color color)
-        {
-            Name = name;
-            Color = color;
-        }
+        public int Count;
     }
 }
